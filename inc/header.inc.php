@@ -8,13 +8,18 @@
     <title>Culinary Cove <?php if (!empty($pageTitle)): ?> &bull; <?php echo $pageTitle; ?><?php endif; ?></title>
 </head>
 <body>
+  <?php 
+  if (empty($headerImg)) {
+    $headerImg = 'images/pexels-engin-akyurt-1435904.jpg';
+  }
+  ?>
   <header class="header-with-background" style="background-image: url('<?php echo $headerImg; ?>'); ">
     <h1>Culinary Cove</h1>
     <p>Your sanctuary for exceptional flavors</p>
     <nav>
-      <a class="active" href="our-mission.php">Our mission</a>
-      <a href="ingredients.php">Ingredients</a>
-      <a href="menu.php">Menu</a>
+      <a class="<?php if (!empty($pageKey) && $pageKey === 'mission') echo 'active'; ?>" href="our-mission.php">Our mission</a>
+      <a class="<?php if (!empty($pageKey) && $pageKey === 'ingredients') echo 'active'; ?>" href="ingredients.php">Ingredients</a>
+      <a class="<?php if (!empty($pageKey) && $pageKey === 'menu') echo 'active'; ?>" href="menu.php">Menu</a>
     </nav>
   </header>
 
